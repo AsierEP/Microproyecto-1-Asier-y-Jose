@@ -8,7 +8,7 @@ root.resizable(False,False)
 root.geometry("1000x600")
 root.config(bg="light yellow")
 
-myFrameBut1=Frame()
+""" myFrameBut1=Frame()
 myFrameBut1.pack()
 myFrameBut1.place(relx=0.5, rely=0.45, anchor="s")
 CustomFontBut1= ("Arial",18,"bold")
@@ -18,8 +18,9 @@ myFrameBut1.config(relief="groove")
 myFrameBut1.config(bd="20")
 myLabel = Label(myFrameBut1, text="Editar líneas del archivo CSV",font= CustomFontBut1)
 myLabel.pack()
-myFrameBut1.config(cursor="hand2")
+myFrameBut1.config(cursor="hand2") """
 
+Button()
 
 myTitle=Frame()
 myTitle.pack()
