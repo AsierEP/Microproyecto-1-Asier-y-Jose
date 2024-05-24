@@ -21,7 +21,7 @@ def window1():
     Txt2.pack()
     Txt3 = Label(window1, text= "Presentado por:\n Asier Errasti C.I: 30497244 \n Luis Morales C.I: \n Jesús Fernández C.I: ", font=CustomFontCinta)
     Txt3.place(rely=0.8)
-    Txt3.pack(anchor="se")
+    Txt3.anchor("sw")
 
 
     Button(window1, text="Modificar las líneas del CSV", width=28, height=4, command= window2).place(relx=0.4, rely=0.4)
@@ -39,6 +39,7 @@ def window2():
     window2.configure(bg="light blue")
     
     CustomFontTi= ("Arial",18,"bold")
+    CustomFontTxt= ("Arial",12,"bold")
     Title = Label(window2, text= "Bienvenido al menú de modificación de modificación del CSV", font=CustomFontTi)
     Title.pack()
 
@@ -59,8 +60,16 @@ def window3():
     window3.configure(bg="light green")
 
     CustomFontTi= ("Arial",18,"bold")
+    CustomFontTxt= ("Arial",12,"bold")
+    CustomFontCinta= ("Arial",6,"bold")
     Title = Label(window3, text= "Bienvenido al menú de modificación de la cabeza de la cinta", font=CustomFontTi)
     Title.pack()
+    Txt1 = Label(window3, text="Por favor introducir la posición donde quiera localizar la cabeza: \n (siendo 1 el primer caracter de la cinta)", font=CustomFontTxt)
+    Txt1.place(x=250, y=130)
+    TF1 = Entry(window3)
+    TF1.place(x=350, y=200)
+    Txt2 = Label(window3, text=cinta, font=CustomFontCinta)
+    Txt2.place(x=30, y=300)
 
     Button(window3, text="Volver al menú", width=28, height=4, command= back_menu31).place(relx=0.4, rely=0.6)
 
