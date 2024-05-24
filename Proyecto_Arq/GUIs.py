@@ -1,5 +1,7 @@
 from tkinter import *
-
+from CSV import *
+from TXT import *
+from MaquinaTuring import*
 cinta = "0"*200
 def window1():
     global window1
@@ -26,7 +28,7 @@ def window1():
 
     Button(window1, text="Modificar las líneas del CSV", width=28, height=4, command= window2).place(relx=0.4, rely=0.4)
     Button(window1, text="Modificar la cabeza de la cinta", width=28, height=4, command= window3).place(relx=0.4, rely=0.6)
-    Button(window1, text="Ejecutar el programa", width=28, height=4, command= ejecutar).place(relx=0.4, rely=0.8)
+    Button(window1, text="Ejecutar el programa", width=28, height=4, command= window4).place(relx=0.4, rely=0.8)
 
     window1.mainloop()
 
@@ -78,8 +80,56 @@ def window3():
     
     window3.mainloop()
 
-def ejecutar():
-    None
+def window4():
+    global window4
+    window4 = Tk()
+    window4.geometry("1000x600")
+    window4.title("Menu")
+    window4.resizable(False, False)
+    window4.configure(bg="light yellow")
+    numero=StringVar()
+    entry=Entry(window4,textvariable=numero)
+    entry.place(x=300,y=300)
+    entry.config(bg="white")
+    cint=TXT(1)
+    cint1=TXT.leer()
+    csv1=CSV("hola")
+    logic=csv1.leerCSV()
+    MT=MaquinaTuring(logic,cint1,4)
+
+    CustomFontTi= ("Arial",22,"bold")
+    CustomFontTxt= ("Arial",12,"bold")
+    CustomFontCinta= ("Arial",6,"bold")    
+    Title = Label(window4, text= "Bienvenido a la simulación de la máquina de Turing", font=CustomFontTi)
+    Title.pack()
+    Txt1 = Label(window4, text= "La cinta del programa es la siguiente:", font=CustomFontTxt)
+    Txt1.pack()
+    Txt2 = Label(window4, text= MT.obtenerCinta(), font=CustomFontCinta)
+    Txt2.pack(anchor=CENTER)
+    Txt2.config(font=(24))
+    Txt3 = Label(window4, text= "Estado actual", font=CustomFontCinta)
+    Txt3.place(x=50,y=200)
+    Txt4 = Label(window4,text="1",font=CustomFontTi)
+    Txt4.place(x=50,y=250)
+
+
+    Button(window4, text="Seleccionar Posicion de la cabeza lectora", width=28, height=4, command=lambda:selectPos()).place(relx=0.4, rely=0.8)
+    Button(window4, text="Ejecutar el programa", width=28, height=4, command=lambda:ejecutar()).place(relx=0.4, rely=0.6)
+   
+    def getnum():
+        num=numero.get()
+        return num
+
+    def selectPos():
+        print(getnum())
+        MT.SetPos(int(getnum()))
+
+    def ejecutar():
+        MT.operar()
+        Txt4["text"]=MT.GetEstado()
+        Txt2["text"]=MT.obtenerCinta()
+
+    window1.mainloop()
 
 def back_menu31():
     window1.iconify()
