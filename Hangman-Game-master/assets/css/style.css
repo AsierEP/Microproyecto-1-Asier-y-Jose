@@ -1,0 +1,37 @@
+body {
+	background-color: gray;
+	position: relative;
+}
+
+body {
+	font-family:'Times New Roman', Times, serif;
+	color: greenyellow;
+}
+
+#custom-font-tittle {
+	text-align: center;
+	font-size: 70px;
+	padding: 10px;
+	padding-bottom: 20px;
+}
+
+#instruction, #alerts {
+	text-align: center;
+	font-size: 16px;
+}
+
+#custom-font-text {
+	text-align: center;
+	font-size: 16px;
+}
+
+#main {
+	width: 960px;
+	margin: 0px auto 0px auto;
+}
+
+.panel {
+	background-color: gray;
+	padding: 20px;
+	margin: 10px;
+}
